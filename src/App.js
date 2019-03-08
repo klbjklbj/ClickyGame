@@ -11,16 +11,8 @@ import "./App.css";
 
 // var shuffle = require('shuffle-array'),
 //     collection = [1,2,3,4,5];
- 
 // shuffle(collection);
- 
 // console.log(collection); // returns [4, 3, 1, 5, 2]
-
-var collection=[1,2,3,4,5];
-Shuffle(collection);
-
-console.log(collection);
-
 
 
 class App extends Component {
@@ -29,50 +21,58 @@ class App extends Component {
   state = {
     friends,
     currentScore: 0,
-    topScore: 0,
-    rightWrong: "",
+    highScore: 0,
     clicked: [],
   };
 
-
-  handleClick = id => {
-    if (this.state.clicked.indexOf(id) === -1) {
-      this.handleIncrement();
-      this.setState({ clicked: this.state.clicked.concat(id) });
-    } else {
-      this.handleReset();
-    }
-  };
-
-  handleIncrement = () => {
-    const newScore = this.state.currentScore + 1;
-    this.setState({
-      currentScore: newScore,
-      rightWrong: ""
-    });
-    if (newScore >= this.state.topScore) {
-      this.setState({ topScore: newScore });
-    }
-    else if (newScore === 12) {
-      this.setState({ rightWrong: "You win!" });
-    }
-    this.handleShuffle();
-  };
-
-  handleReset = () => {
-    this.setState({
-      currentScore: 0,
-      topScore: this.state.topScore,
-      rightWrong: "Glaven!",
-      clicked: []
-    });
-    this.handleShuffle();
-  };
-
-  handleShuffle = () => {
+  shuffleImages = () => {
     let shuffledFriends = Shuffle(friends);
     this.setState({ friends: shuffledFriends });
   };
+
+  //The indexOf() method returns the position of the first occurrence of a specified value in a string.
+  //This method returns -1 if the value to search for never occurs.
+  getClick = id => {
+    if (this.state.clicked.indexOf(id) === -1) {
+      this.keepScore();
+      this.setState({ clicked: this.state.clicked.concat(id) });
+      console.log("Clicked id: " + id);
+    } else {
+      console.log("Sorry");
+      this.resetGame();
+    }
+  };
+
+  keepScore = () => {
+    const newScore = this.state.currentScore + 1;
+    
+    this.setState({
+      currentScore: newScore      
+    });
+    console.log("New Score: "+ newScore);
+    
+    if (newScore >= this.state.highScore) {
+      this.setState({ highScore: newScore });
+      console.log("High Score: "+ this.state.highScore);
+    }
+    
+    else if (newScore === 12) {
+      console.log("Perfect Score!");
+      alert("Perfect Score!");
+    }
+    this.shuffleImages();
+  };
+
+  resetGame = () => {
+    this.setState({
+      currentScore: 0,
+      highScore: this.state.highScore,
+      clicked: [],
+
+    });
+    this.shuffleImages();
+  };
+
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
@@ -83,8 +83,12 @@ class App extends Component {
         {this.state.friends.map(friend => (
           <FriendCard
             //imageClick={this.imageClick}
-            id={friend.id}
             key={friend.id}
+            getClick={this.getClick}
+            keepScore={this.keepScore}
+            resetGame={this.resetGame}
+            shuffleImages={this.shuffleImages}
+            id={friend.id}
             image={friend.image}
           />
         ))}
