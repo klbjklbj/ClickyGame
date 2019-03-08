@@ -79,10 +79,10 @@ class App extends Component {
     return (
 
       <Wrapper>
-        <Header score={this.state.score} highscore={this.state.highscore}>Clicky Game</Header>
+        <Header score={this.state.currentScore} highscore={this.state.highScore}>Clicky Game</Header>
+        
         {this.state.friends.map(friend => (
           <FriendCard
-            //imageClick={this.imageClick}
             key={friend.id}
             getClick={this.getClick}
             keepScore={this.keepScore}
