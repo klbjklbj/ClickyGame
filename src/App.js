@@ -4,8 +4,8 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import friends from "./friends.json";
-import "./App.css";
 
+import "./App.css";
 
 //https://www.npmjs.com/package/shuffle-array
 
@@ -45,17 +45,17 @@ class App extends Component {
 
   keepScore = () => {
     const newScore = this.state.currentScore + 1;
-    
+
     this.setState({
-      currentScore: newScore      
+      currentScore: newScore
     });
-    console.log("New Score: "+ newScore);
-    
+    console.log("New Score: " + newScore);
+
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-      console.log("High Score: "+ this.state.highScore);
+      console.log("High Score: " + this.state.highScore);
     }
-    
+
     else if (newScore === 12) {
       console.log("Perfect Score!");
       alert("Perfect Score!");
@@ -77,22 +77,24 @@ class App extends Component {
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
+      <div>
+        <Wrapper>
 
-      <Wrapper>
-        <Header score={this.state.currentScore} highscore={this.state.highScore}>Clicky Game</Header>
-        
-        {this.state.friends.map(friend => (
-          <FriendCard
-            key={friend.id}
-            getClick={this.getClick}
-            keepScore={this.keepScore}
-            resetGame={this.resetGame}
-            shuffleImages={this.shuffleImages}
-            id={friend.id}
-            image={friend.image}
-          />
-        ))}
-      </Wrapper>
+          <Header score={this.state.currentScore} highscore={this.state.highScore}>Clicky Game - Click on all images without any repeats! Try for a score of 12!</Header>
+
+          {this.state.friends.map(friend => (
+            <FriendCard
+              key={friend.id}
+              getClick={this.getClick}
+              keepScore={this.keepScore}
+              resetGame={this.resetGame}
+              shuffleImages={this.shuffleImages}
+              id={friend.id}
+              image={friend.image}
+            />
+          ))}
+        </Wrapper>
+      </div>
     );
   }
 }

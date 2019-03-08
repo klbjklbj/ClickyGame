@@ -1,8 +1,17 @@
-.title {
-  width: 100%;
+.header {
+  background-color: #2C323C;
+  /* background-image: url("/assets/images/geometry.svg"); */
+  background-repeat: repeat;
+  color: white;
+  min-height: 400px;
+  padding: 180px 20px; 
+  padding-bottom: 140px;
   text-align: center;
-  font-size: 3rem;
-  text-decoration: underline;
-  color: #2A77AE;
-  margin-bottom: 50px;
 }
+
+.header h1 {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 4rem;
+}
+
