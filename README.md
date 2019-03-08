@@ -1,6 +1,6 @@
 ## Welcome to the Clicky Game!
 
-Find the deployed version here - https://klbjklbj.github.io/ClickyGame/.
+Find the deployed version here - https://salty-shore-73849.herokuapp.com/.
 
 This project was made with [Create React App](https://github.com/facebook/create-react-app).
 
