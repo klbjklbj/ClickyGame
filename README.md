@@ -1,4 +1,6 @@
-##Welcome to the Clicky Game!
+## Welcome to the Clicky Game!
+
+Find the deployed version here - https://klbjklbj.github.io/ClickyGame/.
 
 This project was made with [Create React App](https://github.com/facebook/create-react-app).
 
