@@ -1,3 +1,5 @@
+##Welcome to the Clicky Game!
+
 This project was made with [Create React App](https://github.com/facebook/create-react-app).
 
 It uses the NPM "shuffle-array" package which is a handy little tool for randomizing the array images when an image is clicked.
