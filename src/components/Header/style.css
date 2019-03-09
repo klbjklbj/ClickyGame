@@ -1,17 +1,22 @@
-.header {
-  background-color: #2C323C;
-  /* background-image: url("/assets/images/geometry.svg"); */
-  background-repeat: repeat;
+
+.itemLeft {
+  width: 15%;
+}
+
+.itemCenter {
+	width: 70%;
+}
+
+.itemRight {
+  width: 15%;
+}
+
+li {
   color: white;
-  min-height: 400px;
-  padding: 180px 20px; 
-  padding-bottom: 140px;
-  text-align: center;
+  padding: 15px 0;
 }
 
-.header h1 {
-  margin: 0;
-  margin-bottom: 30px;
-  font-size: 4rem;
+body {
+  font-size: 24px;
+  color: white;
 }
-

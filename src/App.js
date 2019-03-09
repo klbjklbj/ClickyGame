@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Shuffle from "shuffle-array";
 import FriendCard from "./components/FriendCard";
+import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import friends from "./friends.json";
@@ -79,8 +80,8 @@ class App extends Component {
     return (
       <div>
         <Wrapper>
-
-          <Header score={this.state.currentScore} highscore={this.state.highScore}>Clicky Game - Click on all images without any repeats! Try for a score of 12!</Header>
+          <Jumbotron />
+          <Header score={this.state.currentScore} highscore={this.state.highScore}></Header>
 
           {this.state.friends.map(friend => (
             <FriendCard
