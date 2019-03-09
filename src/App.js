@@ -39,7 +39,7 @@ class App extends Component {
       this.setState({ clicked: this.state.clicked.concat(id) });
       console.log("Clicked id: " + id);
     } else {
-      console.log("Sorry");
+      alert("Oops. Repeat image. Click any picture to try again.");
       this.resetGame();
     }
   };
